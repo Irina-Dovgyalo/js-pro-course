@@ -31,14 +31,16 @@ Car.prototype.changeColor = function(color){
 Car.prototype.calculateWay = function(kilometers, fuel){
 	if (fuel < 10){
 		console.log('You need to refuel');
-	} else { 
+	};
 		var speed = this.maxSpeed;
 		var time = kilometers / speed;
 		console.log ('Your path will takes ' + time.toFixed(1) + ' hour');
-	};
-		var totalFuel = kilometers / this.fuelConsumption;
-    var carTanks = this.fuelCapacity / totalFuel;
-		console.log('You need to refuel ' + carTanks + ' times');
+
+//	var fuelCapacityOnAllWay = (kilometers * this.fuelConsumption) / 100;
+//	var qualityCapacity = fuelCapacityOnAllWay / this.fuelCapacity;
+//	if 	(qualityCapacity > 1) {
+//			console.log('You need to refuel ' + qualityCapacity + ' times');	
+//	};
 }
 
 
@@ -59,11 +61,11 @@ var carToyotaVitz = new FabricCarToyota('VITZ', 'Toyota', 2008, 'grey', 80);
 //	Car.apply(this, arguments);
 //}
 
-//Mitsubishi Debonair   - обходительность и вежливость
-//Mitsubishi Dignity - чувство собственного достоинства
-//Nissan Fairlady - прекрасная леди
-//Nissan Flying Feather - летящее перо
-//Toyota VITZ - яркий, остроумный, талантливый
-//Toyota BREVIS - мужественный, отважный, смелый, храбрый
-//Subaru DIAS - ежедневный, на каждый день
+//Mitsubishi Debonair
+//Mitsubishi Dignity
+//Nissan Fairlady
+//Nissan Flying Feather
+//Toyota VITZ
+//Toyota BREVIS
+//Subaru DIAS
 //Subaru SAMBAR TRY
