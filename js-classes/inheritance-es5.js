@@ -20,19 +20,25 @@ return year - this.year
 
 Car.prototype.changeColor = function(color){
 	if (this.color == 'red') {
-		alert('The color of your car is already red');
+		console.log('The color of your car is already red');
 	} else {
 		var newColor = 'green';
 		this.color = newColor;
-		alert('Now your car is ' + newColor + ' color');
+		console.log('Now your car is ' + newColor + ' color');
 	}
 }
 
-function calculateWay (){
-//взять 2 параметра: километры и топливо;
-//проверить, если топливо <10, показать сообщение о заправке;
-//рассчитать время, необходимое для достижения пункта назначения, показать сообщение об этом;
-//проверьте, если вам нужно заправиться на дороге и показать сообщение (сколько раз вам нужно заправиться)
+Car.prototype.calculateWay = function(kilometers, fuel){
+	if (fuel < 10){
+		console.log('You need to refuel');
+	} else { 
+		var speed = this.maxSpeed;
+		var time = kilometers / speed;
+		console.log ('Your path will takes ' + time.toFixed(1) + ' hour');
+	};
+		var totalFuel = kilometers / this.fuelConsumption;
+    var carTanks = this.fuelCapacity / totalFuel;
+		console.log('You need to refuel ' + carTanks + ' times');
 }
 
 
@@ -42,8 +48,8 @@ function FabricCarToyota (model, year, color, maxSpeed, fuelCapacity, fuelConsum
 
 FabricCarToyota.prototype = Car.prototype;
 
-var carToyotaBrevis = new FabricCarToyota('BREVIS', 'Toyota', 1998, 'red', 150, 50);
-var carToyotaVitz = new FabricCarToyota('VITZ', 'Toyota', 2008, 'grey');
+var carToyotaBrevis = new FabricCarToyota('BREVIS', 'Toyota', 1998, 'red', 90, 75, 15);
+var carToyotaVitz = new FabricCarToyota('VITZ', 'Toyota', 2008, 'grey', 80);
 
 //FabricCarToyota.prototype = Object.create(Car.prototype);
 //
