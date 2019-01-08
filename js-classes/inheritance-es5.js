@@ -18,11 +18,10 @@ var year = date.getFullYear();
 return year - this.year
 }
 
-Car.prototype.changeColor = function(color){
-	if (this.color == 'red') {
+Car.prototype.changeColor = function(newColor){
+	if (newColor == this.color) {
 		console.log('The color of your car is already red');
 	} else {
-		var newColor = 'green';
 		this.color = newColor;
 		console.log('Now your car is ' + newColor + ' color');
 	}
