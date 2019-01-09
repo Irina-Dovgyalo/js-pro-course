@@ -6,8 +6,11 @@ const tbody = document.getElementById('table-body');
 const clearButton = document.getElementById('clear');
 clearButton.addEventListener('click', clearDataTable);
 
+const myLocation = document.getElementById('my-weather');
+myLocation.addEventListener('click', getWeatherByLocation);
+
 function getWeather(value){
-		fetch ("http://api.apixu.com/v1/current.json?key=39e2192ab5be4805b4c190756181912&q=" + input.value)
+		fetch ("http://api.apixu.com/v1/current.json?key=39e2192ab5be4805b4c190756181912&q=" + `${input.value || value}`)
 		.then(response => response.json())
 		.then(data => setDataToTable(data), data => console.log(data))
 		.catch(error => console.error(error))
@@ -33,24 +36,12 @@ function setDataToTable(data){
 	tableBody.appendChild(tr);
 }
 
-// function get(){
-// 	fetch ("http://api.apixu.com/v1/current.json?key=39e2192ab5be4805b4c190756181912&q=" + document.getElementById('weatherSearch').value)
-// 	.then(response => response.json())
-// 	.then(data => div.innerHTML = data.location.country + ', ' + data.location.name + ": " + data.current.temp_c + " °C", data => console.log(data))
-// 	.catch(error => console.error(error))
-// }
-
-
-let myLocation = document.getElementById('my-weather');
-myLocation.addEventListener('click', getWeatherByLocation);
 
 function getWeatherByLocation(){
-	navigator.geolocation.getCurrentPosition(({coords}) => {
-		let lat = coords.latitude;
-		let long = coords.longitude;
-		console.log(lat.toFixed(2) + ' ' + long.toFixed(2));
-		getWeather(`${coords.latitude},${coords.longitude}`)
-	});
+	navigator.geolocation.getCurrentPosition(({coords}) => getWeather(`${coords.latitude}, ${coords.longitude}`));
+		// var lat = coords.latitude;
+		// var long = coords.longitude;
+		// console.log(lat.toFixed(2) + ' ' + long.toFixed(2));
 }
 
 
