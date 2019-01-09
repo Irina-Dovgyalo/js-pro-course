@@ -39,9 +39,6 @@ function setDataToTable(data){
 
 function getWeatherByLocation(){
 	navigator.geolocation.getCurrentPosition(({coords}) => getWeather(`${coords.latitude}, ${coords.longitude}`));
-		// var lat = coords.latitude;
-		// var long = coords.longitude;
-		// console.log(lat.toFixed(2) + ' ' + long.toFixed(2));
 }
 
 
