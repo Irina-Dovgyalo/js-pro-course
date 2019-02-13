@@ -23,6 +23,7 @@ class Form extends Component {
   }
 
   mapEmoji(emoji, id) {
+    
     // if (emojiList.length > 15) {
     //   emojiList.length = 15;
     // }
